@@ -1,6 +1,6 @@
 import "./App.css";
 import { useFormik } from "formik";
-import { Select, Option, Textarea } from "@material-tailwind/react";
+import { Select, Option, Textarea, Alert } from "@material-tailwind/react";
 import { InputWithDropdown } from "./components/InputWithDropDown";
 import DatePickerCustom from "./components/DatePickerCustom";
 import emailjs from "@emailjs/browser";
@@ -31,16 +31,16 @@ function App() {
       },
     },
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+    
       emailjs
         .send(
           "service_wvftloa",
           "template_0v5fy2e",
           {
             from_name: "Ali Ntagungira",
-            to_name: "Gabin",
-            from_email: "ntagungiraali@gmail.com",
-            to_email: values.businessOwnerDetails.email,
+            to_name: "P. Touko",
+            from_email: values.businessOwnerDetails.email,
+            to_email: "ntagungiraali@gmail.com",
             message: JSON.stringify(values, null, 2),
           },
           "hzIvTRJL-tYcSA65K"
@@ -48,9 +48,11 @@ function App() {
         .then(
           (result) => {
             console.log(result.text);
+            alert("Email sent successfully")
           },
           (error) => {
             console.log(error.text);
+            alert("Email failed to send")
           }
         );
     },
@@ -365,7 +367,7 @@ function App() {
           </div>
 
           {/* Submit Button */}
-          <button type="submit" className="bg-blue-500 text-white p-2 mt-5">
+          <button type="submit" className="bg-blue-500 text-white p-2 mt-5 hover:bg-blue-300">
             Submit
           </button>
         </form>
