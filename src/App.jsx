@@ -13,8 +13,8 @@ function App() {
       phoneNumber: Yup.string().required("Phone Number is required"),
       email: Yup.string().email("Invalid email").required("Email is required"),
       province: Yup.string().required("Province is required"),
-      nationalId: Yup.string().required("National ID is required"),
-      passport: Yup.string().required("Passport is required"),
+      nationalId: Yup.string(),
+      passport: Yup.string(),
       otherNames: Yup.string().required("Other Names is required"),
       surname: Yup.string().required("Surname is required"),
       nationality: Yup.string().required("Nationality is required"),
@@ -73,6 +73,7 @@ function App() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      console.log(values);
       emailjs
         .send(
           "service_wvftloa",
@@ -80,8 +81,8 @@ function App() {
           {
             from_name: "Ali Ntagungira",
             to_name: "P. Touko",
-            from_email: values.businessOwnerDetails.email,
-            to_email: "ntagungiraali@gmail.com",
+            from_email: "ntagungiraali@gmail.com",
+            to_email: values.businessOwnerDetails.email,
             message: JSON.stringify(values, null, 2),
           },
           "hzIvTRJL-tYcSA65K"
@@ -335,25 +336,25 @@ function App() {
 
           {/* Business Details */}
           <div className="border-2 border-black rounded-md mt-5">
-            <div className="w-[100%] bg-blue-100 p-3 ">
+            <div className="w-[100%] bg-blue-100 p-3 flex flex-row">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 text-blue-700"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                />
+              </svg>
               <p className="text-blue-700 font-bold">Business Details</p>
             </div>
             <div className="mt-4 w-[100%] p-4">
-              <div className="w-[100%] bg-blue-100 p-3 flex flex-row">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6 text-blue-700"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-                  />
-                </svg>
+              <div className="w-[100%] text-black font-semibold">
                 <p>Business Details</p>
               </div>
               <div className="flex flex-row mt-4">
