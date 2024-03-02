@@ -10,7 +10,7 @@ function App() {
   const validationSchema = Yup.object({
     businessOwnerDetails: Yup.object({
       citizenship: Yup.string().required("Citizenship is required"),
-      phoneNumber: Yup.string().required("Phone Number is required"),
+      phoneNumber: Yup.string(),
       email: Yup.string().email("Invalid email").required("Email is required"),
       province: Yup.string().required("Province is required"),
       nationalId: Yup.string(),
@@ -22,8 +22,8 @@ function App() {
     businessDetails: Yup.object({
       businessType: Yup.string().required("Business Type is required"),
       companyName: Yup.string().required("Company Name is required"),
-      tinNumber: Yup.string().required("TIN Number is required"),
-      registrationDate: Yup.string().required("Registration Date is required"),
+      tinNumber: Yup.number().required("Tin Number is required"),
+      registrationDate: Yup.string(),
       province: Yup.string().required("Province is required"),
     }),
     productInformation: Yup.object({
