@@ -77,13 +77,15 @@ function App() {
       emailjs
         .send(
           "service_wvftloa",
-          "template_0v5fy2e",
+          "template_6ie1cxf",
           {
             from_name: "Ali Ntagungira",
-            to_name: "P. Touko",
-            from_email: "ntagungiraali@gmail.com",
-            to_email: values.businessOwnerDetails.email,
+            to_name:
+              values.businessOwnerDetails.otherNames +
+              " " +
+              values.businessOwnerDetails.surname,
             message: JSON.stringify(values, null, 2),
+            to_email: values.businessOwnerDetails.email,
           },
           "hzIvTRJL-tYcSA65K"
         )
@@ -514,9 +516,9 @@ function App() {
                     )
                   }
                 >
-                  <Option value="Direct Sale">Direct Sale</Option>
-                  <Option value="Personal Use">Personal Use</Option>
-                  <Option value="Trial Use">Trial Use</Option>
+                  <Option value="Direct Sale">General purpose</Option>
+                  <Option value="Personal Use"> Construction materials</Option>
+                  <Option value="Trial Use">Chemicals</Option>
                 </Select>
               </div>
               <div className="w-[25%] mr-2 mt-3">
@@ -586,12 +588,12 @@ function App() {
           </div>
 
           {/* Submit Button */}
-          <button
+          <input
             type="submit"
+            value={"Submit"}
             className="bg-blue-500 text-white p-2 mt-5 hover:bg-blue-300"
-          >
-            Submit
-          </button>
+          />
+        
         </form>
       </div>
     </div>
