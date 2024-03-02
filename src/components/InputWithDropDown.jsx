@@ -15,14 +15,14 @@ export function InputWithDropdown() {
   const { name, flags, countryCallingCode } = countries[country];
 
   return (
-    <div className="relative flex w-full max-w-[24rem]">
+    <div className="flex max-w-[5rem]">
       <Menu placement="bottom-start">
         <MenuHandler>
           <Button
             ripple={false}
             variant="text"
             color="blue-gray"
-            className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+            className="flex h-10 items-center rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
           >
             <img
               src={flags.svg}
@@ -60,7 +60,7 @@ export function InputWithDropdown() {
           className: "before:content-none after:content-none",
         }}
         containerProps={{
-          className: "min-w-0",
+          className: "w-[5rem]",
         }}
       />
     </div>
